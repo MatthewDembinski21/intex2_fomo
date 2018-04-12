@@ -14,7 +14,7 @@ def process_request(request, product: cmod.Product):
         return HttpResponseRedirect('/catalog/cart/')
 
     if product is None:
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/catalog')
 
     categoryList = cmod.Category.objects.all()
     productList = cmod.Product.objects.all().filter(status='A')

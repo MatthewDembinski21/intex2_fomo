@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1522899054.801936
+_modified_time = 1523509617.361474
 _enable_loop = True
-_template_filename = 'C:/Users/mayaroney/desktop/fomo/catalog/templates/app_base.html'
+_template_filename = '/Users/Josh/Downloads/intex2_fomo/catalog/templates/app_base.html'
 _template_uri = 'app_base.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -32,16 +32,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        name = context.get('name', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         def content_left():
             return render_content_left(context._locals(__M_locals))
         def nav_main():
             return render_nav_main(context._locals(__M_locals))
-        def menu():
-            return render_menu(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        name = context.get('name', UNDEFINED)
+        def menu():
+            return render_menu(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n\r\n\r\n')
@@ -85,9 +85,9 @@ def render_menu(context,**pageargs):
 def render_nav_main(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        request = context.get('request', UNDEFINED)
         def nav_main():
             return render_nav_main(context)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n       <li class = "nav item ')
         __M_writer(str( 'active' if request.dmp.page == 'index' and request.dmp.app == 'homepage' else ''))
@@ -142,24 +142,28 @@ def render_content_right(context,**pageargs):
             return render_content_right(context)
         request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n</br>\r\n    <h3>Recently Viewed</h3>\r\n        ')
-
-        if request.dmp.page == 'details':
-            myList = request.last_five[1:6]
+        __M_writer('\r\n')
+        if request.dmp.page == 'cart':
+            __M_writer('\r\n')
         else:
-            myList = request.last_five[0:5]
-                
-        
-        __M_writer("\r\n        <ol id='thumbnailsRight'>\r\n")
-        for h in myList:
-            __M_writer('                <a href="/catalog/details/')
-            __M_writer(str(h.id))
-            __M_writer('/"><li class =\'rightimage\' alt=""><img src=\'')
-            __M_writer(str(h.image_url()))
-            __M_writer("'></li></a>\r\n                <p>")
-            __M_writer(str(h.name))
-            __M_writer('</p>\r\n')
-        __M_writer('         </ol>\r\n')
+            __M_writer('</br>\r\n    <h3>Recently Viewed</h3>\r\n        ')
+
+            if request.dmp.page == 'details':
+                myList = request.last_five[1:6]
+            else:
+                myList = request.last_five[0:5]
+                    
+            
+            __M_writer("\r\n        <ol id='thumbnailsRight'>\r\n")
+            for h in myList:
+                __M_writer('                <a href="/catalog/details/')
+                __M_writer(str(h.id))
+                __M_writer('/"><li class =\'rightimage\' alt=""><img src=\'')
+                __M_writer(str(h.image_url()))
+                __M_writer("'></li></a>\r\n                <p>")
+                __M_writer(str(h.name))
+                __M_writer('</p>\r\n')
+            __M_writer('         </ol>\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -167,6 +171,6 @@ def render_content_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/mayaroney/desktop/fomo/catalog/templates/app_base.html", "uri": "app_base.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "46": 1, "47": 2, "52": 7, "57": 19, "62": 47, "67": 65, "73": 5, "79": 5, "85": 10, "92": 10, "93": 12, "94": 12, "95": 13, "96": 13, "97": 14, "98": 14, "99": 15, "100": 15, "101": 16, "102": 16, "103": 17, "104": 17, "110": 22, "117": 22, "118": 29, "119": 29, "120": 32, "121": 33, "122": 35, "123": 35, "124": 36, "125": 36, "126": 36, "127": 36, "128": 39, "129": 44, "130": 44, "131": 44, "132": 44, "138": 50, "145": 50, "146": 53, "153": 58, "154": 60, "155": 61, "156": 61, "157": 61, "158": 61, "159": 61, "160": 62, "161": 62, "162": 64, "168": 162}}
+{"filename": "/Users/Josh/Downloads/intex2_fomo/catalog/templates/app_base.html", "uri": "app_base.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "46": 1, "47": 2, "52": 7, "57": 19, "62": 47, "67": 70, "73": 5, "79": 5, "85": 10, "92": 10, "93": 12, "94": 12, "95": 13, "96": 13, "97": 14, "98": 14, "99": 15, "100": 15, "101": 16, "102": 16, "103": 17, "104": 17, "110": 22, "117": 22, "118": 29, "119": 29, "120": 32, "121": 33, "122": 35, "123": 35, "124": 36, "125": 36, "126": 36, "127": 36, "128": 39, "129": 44, "130": 44, "131": 44, "132": 44, "138": 50, "145": 50, "146": 51, "147": 52, "148": 53, "149": 54, "150": 56, "157": 61, "158": 63, "159": 64, "160": 64, "161": 64, "162": 64, "163": 64, "164": 65, "165": 65, "166": 67, "172": 166}}
 __M_END_METADATA
 """

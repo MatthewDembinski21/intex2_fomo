@@ -48,6 +48,9 @@
 
 
 <%block name="content_right">
+%if request.dmp.page == 'cart':
+
+%else:
 </br>
     <h3>Recently Viewed</h3>
         <%
@@ -62,4 +65,6 @@
                 <p>${h.name}</p>
              %endfor
          </ol>
+
+ %endif
 </%block>
