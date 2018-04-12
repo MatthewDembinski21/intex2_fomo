@@ -163,9 +163,9 @@ DATABASES = {
         'NAME': 'test',
         'USER': 'postgres',
         # 'PASSWORD': 'Kuuipo88',
-        'PASSWORD':'jaja1234',
+        'PASSWORD':'password',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5433',
                 }
             }
 
