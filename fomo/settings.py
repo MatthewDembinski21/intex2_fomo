@@ -165,7 +165,7 @@ DATABASES = {
         # 'PASSWORD': 'Kuuipo88',
         'PASSWORD':'password',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '',
                 }
             }
 

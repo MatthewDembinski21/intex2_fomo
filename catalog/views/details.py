@@ -57,6 +57,8 @@ class CartForm(Formless):
         self.submit_text="Add to Cart"
         if self.request.user.is_authenticated:
             self.cart = self.request.user.get_shopping_cart()
+        else:
+            return HttpResponseRedirect('/account/login/')
 
         quanty = []
         for x in range(1, self.product.get_quantity() + 1):
@@ -71,30 +73,33 @@ class CartForm(Formless):
 
 
     def clean(self):
-        qtycheck = self.cleaned_data.get('quantity')
-        qtycheck = int(qtycheck)
+        if self.request.user.is_authenticated:
+            qtycheck = self.cleaned_data.get('quantity')
+            qtycheck = int(qtycheck)
 
-        item = self.cart.get_item(self.product, True)
-        item.recalculate(0)
+            item = self.cart.get_item(self.product, True)
+            item.recalculate(0)
 
-        if qtycheck is None:
-            raise forms.ValidationError('Please enter a quantity')
+            if qtycheck is None:
+                raise forms.ValidationError('Please enter a quantity')
 
-        if item.quantity + qtycheck > self.product.get_quantity():
-            if self.product.__class__.__name__ == 'BulkProduct':
-                raise forms.ValidationError('You can only order ' + str(
-                    self.product.get_quantity()) + ' ' + self.product.name + '. You currently have ' + str(item.quantity) + " in your cart.")
-            else:
-                raise forms.ValidationError('This item is already in your cart.')
+            if item.quantity + qtycheck > self.product.get_quantity():
+                if self.product.__class__.__name__ == 'BulkProduct':
+                    raise forms.ValidationError('You can only order ' + str(
+                        self.product.get_quantity()) + ' ' + self.product.name + '. You currently have ' + str(item.quantity) + " in your cart.")
+                else:
+                    raise forms.ValidationError('This item is already in your cart.')
 
-        return self.cleaned_data
-
-
+            return self.cleaned_data
+        else:
+            return HttpResponseRedirect('/account/login/')
     def commit(self):
+        if self.request.user.is_authenticated:
+            item = self.cart.get_item(self.product, True)
+            q = int(self.cleaned_data.get('quantity'))
+            item.recalculate(q)
 
-        item = self.cart.get_item(self.product, True)
-        q = int(self.cleaned_data.get('quantity'))
-        item.recalculate(q)
-
-        # save the new order
-        item.save()
+            # save the new order
+            item.save()
+        else:
+            return HttpResponseRedirect('/account/login/')

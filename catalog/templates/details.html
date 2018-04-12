@@ -6,15 +6,45 @@
 </%block>
 
 <%block name="content_center">
+<div class='product_tile'>
+    <div class='pics'>
+      <ul class='pic_list'>
+        % for i in myPics:
+          <li>
+            <img src = "${i}" class='image smolpic'alt='Thumbnail of ${product.name}'/>
+          </li>
+        % endfor
+      </ul>
+    </div>
 
+    ## <div>
+    ##   <img src = "${active_img}" class='active_pic' alt='Image of ${product.name}'/>
+    ## </div>
+
+  ##   <div class='pdesc'>
+  ##     ${product.description}
+  ##     ${form}
+  ##     % if product.TITLE == 'Bulk Product':
+  ##       Quantity:
+  ##       <select class='quan'>
+  ##         % for n in range(product.quantity):
+  ##           <option value='n'>${n + 1}</option>
+  ##         % endfor
+  ##       </select>
+  ##       <a href='' class="btn btn-success btn-lg active bulkbutt" role="button" aria-pressed="true">BUY NOW</a>
+  ##     % else:
+  ##       <a href='' class="btn btn-success btn-lg active buybutt" role="button" aria-pressed="true">BUY NOW</a>
+  ##     % endif
+  ##   </div>
+  </div>
 
     <div id='image_container'>
         <ul id='thumbnails'>
-             %for p in myPics:
-                <li class ='image' alt="Thumbnail Images"><img src='${p}'></li>
-             %endfor
+             ## %for p in myPics:
+             ##    <li class ='smolpic' alt="Thumbnail Images"><img src='${p}'></li>
+             ## %endfor
          </ul>
-         <img id='largeimage' alt="Image of ${product.name}" src='${product.image_url()}'>
+         <img id='largeimage' class='active_pic' alt="Image of ${product.name}" src='${product.image_url()}'>
      </div>
      <div id='product_details'>
          <h1 class="title">${product.name|h}</h1>

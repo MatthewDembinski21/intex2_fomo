@@ -1,0 +1,41 @@
+.product_tile {
+  position: relative;
+}
+
+.pdesc {
+  font-family: 'Hammersmith One';
+}
+
+.pic_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.pics {
+  float: left;
+  width: 11%;
+  margin-right: 10px;
+}
+
+.smolpic {
+  width: 100%;
+  border: 1px solid #293d3d;
+  border-radius: 15px;
+  top: 10px;
+  left: 0;
+  margin-bottom: 8px;
+}
+
+.active_pic {
+  border: 4px solid #293d3d;
+  border-radius: 15px;
+  width: 36%;
+  float: left;
+  margin-right: 10px;
+}
+
+
+.quan {
+  margin-left: 7px;
+}

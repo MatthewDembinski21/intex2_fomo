@@ -11,7 +11,7 @@
     margin: 12px 18px;
     padding: 8px;
     width: 150px;
-    border: 2px solid orange;
+    border: 2px solid dimgray;
     border-radius: 4px;
 }
 
@@ -33,19 +33,12 @@
     overflow-y: auto;
 }
 
-#shopTitle{
-    text-align: Center;
-}
-
-
-
 ul {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
 
 }
-
 
 #name {
     position: relative;
@@ -163,3 +156,40 @@ h5{
 #thumbnailsRight{
 }
 
+#catlist {
+  list-style: none;
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-family: 'Hammersmith One';
+}
+
+a {
+  color: #C8C8C8;
+}
+
+li a.active {
+  color: black;
+}
+
+#allprod {
+  color: #696969;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #c00;
+}
+
+.rv {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rvpics {
+  width: 70%;
+  max-width: 70px;
+}

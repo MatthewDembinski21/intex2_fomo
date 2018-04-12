@@ -22,21 +22,16 @@
 <%block name="content_left">
 </br>
 </br>
-
-<ul id="category_list" class="nav  nav-pills nav-stacked">
-        <li>
-            <a href="/catalog/index/" type="button"
-               class="btn btn-link nav-item category_nav ${'on' if name == 'All Products' else 'off'}">All
-                Products</a>
-        </li>
-        %for c in cmod.Category.objects.all():
-            <li>
-
-                <a id="but" href="/catalog/index/${c.id}" type="button"
-                   class="btn btn-link nav-item category_nav ${'on' if c.name == name else 'off'}">${c.name}</a>
-            </li>
-        % endfor
-    </ul>
+<ul id='catlist'>
+  <li><a id='allprod' href='/catalog/index'/>All Products</a></li>
+  <%! from catalog import models as cmod %>
+  % for c in cmod.Category.objects.all():
+    % if category == c.name:
+      <li><a class ='active' href='/catalog/index/${c.id}'/>${c.name}</a></li>
+    % else:
+      <li><a href='/catalog/index/${c.id}'/>${c.name}</a></li>
+    % endif
+  % endfor
 
     <!--<ul id="category_list">-->
         <!--<li><a  href="/catalog/index/0/">All Products</a></li>-->
@@ -56,7 +51,7 @@
             else:
                 myList = request.last_five[0:5]
         %>
-        <ol id='thumbnailsRight'>
+        <ol id='thumbnailsRight' class='rv cen'>
              %for h in myList:
                 <a href="/catalog/details/${h.id}/"><li class ='rightimage' alt=""><img src='${h.image_url()}'></li></a>
                 <p>${h.name}</p>

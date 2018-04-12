@@ -1,8 +1,8 @@
 .table{
-    width: 900px;
+    width: 82%;
 }
 
-.butt{
+/* .butt{
     background-color: orange;
     border-radius: 12px;
     color: white;
@@ -10,14 +10,8 @@
     padding-right: 40px;
     padding-top: 15px;
     padding-bottom: 15px;
+} */
 
-
-}
-
-.totals{
-    text-align: center;
-}
-
-hr{
-    width: 900px;
-}
+/* hr{
+    width: 72%;
+} */

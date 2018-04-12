@@ -2,13 +2,20 @@
 
 <%block name="content">
 
-    <ul class="product_list">
-        % for s in products:
-        <li>
-            <div class="price">${s.price}</div>
-            <div class="pics"><a href="/catalog/details/${s.id}/"><img src=${s.image_url()}></a></div>
-            <div class = "name"><a href="#">${s.name}</a></div>
-        </li>
+    <ul>
+        % for p in products:
+        ## <li>
+        ##     <div class="price">${s.price}</div>
+        ##     <div class="pics"><a href="/catalog/details/${s.id}/"><img src=${s.image_url()}></a></div>
+        ##     <div class = "name cen"><a href="#">${s.name}</a></div>
+        ## </li>
+        <a href="/catalog/details/${p.id}/">
+          <li class="product_tile">
+            <div class='prodpic cen'><img class='catalog_pics' src= '${p.image_url()}' /></div>
+            <div class='monies'> $${p.price}</div>
+            <div class='prodname cen'>${p.name}</div>
+          </li>
+        </a>
         %endfor
     </ul>
 

@@ -82,7 +82,7 @@ def render_nav_main(context,**pageargs):
         __M_writer(str( 'active' if request.dmp.page == 'terms' else '' ))
         __M_writer('"><a href="/terms">Terms</a></li>\r\n       <li class=" ')
         __M_writer(str( 'active' if request.dmp.page == 'product' else '' ))
-        __M_writer('"><a href="/catalog/product/">Product</a></li>\r\n')
+        __M_writer('"><a href="/manager/products/">Product</a></li>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()

@@ -16,7 +16,9 @@
     <script src="${ STATIC_URL }homepage/media/bootstrap3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="${ STATIC_URL }homepage/media/bootstrap3/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="${ STATIC_URL }homepage/media/bootstrap3/css/bootstrap-theme.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Hammersmith One' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     ## render the static file links with the same name as this template
@@ -24,7 +26,7 @@
     ${ django_mako_plus.links(self) }
 
     ##put in an icon
-    <link id = "icon" rel="shortcut icon" type="image/png" href="${ STATIC_URL }homepage/media/Images/icon.png"/>
+    <link rel="fluid icon" href="${STATIC_URL}homepage/media/images/favicon.ico">
 
 
 </head>
@@ -43,7 +45,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index"><img id="icon" src="${ STATIC_URL }homepage/media/Images/icon.png"/></a>
+          <a class="navbar-brand" href="index"><i class="fa fa-headphones" style="color:#3D5A67;"></i></a>
         </div>
           <ul class="nav navbar-nav">
               <%block name="nav_main">
@@ -70,14 +72,14 @@
                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                Welcome ${request.user.first_name} ${request.user.last_name}
                            <span class="caret"></span></a>
-                           <ul class="dropdown-menu">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="/account/logout">Log Out</a></li>
+                           <ul class="dropdown-menu blue">
+                            <li><a href="#"><i class="fa fa-id-card" style="color:#3D5A67;"></i> My Account</a></li>
+                            <li><a href="/account/logout"><i class="fa fa-user-times" style="color:#3D5A67;"></i> Log Out</a></li>
                            </ul>
                          </li>
                     %else:
-                        <li><a href="/account/signup">Sign Up</a></li>
-                        <li><a href="/account/login">Login</a></li>
+                        <li><a href="/account/signup"><i class="fa fa-user-plus"></i> Sign Up</a></li>
+                        <li><a href="/account/login"><i class="fa fa-sign-in"></i> Login</a></li>
                </ul>
                     %endif
 
@@ -117,7 +119,7 @@
 
 </main>
 
-<div class="text-center">
+<div class="footerstuff cen">
     <footer>
     <%block name="footer">
         <%! from datetime import datetime %>

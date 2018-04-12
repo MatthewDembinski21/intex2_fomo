@@ -8,15 +8,14 @@ h4.utc-time {
 
 }
 
-h1{
-    color: White;
-    font-size: 100px;
+h1 {
+  font-size: 73px;
 }
 
 .title {
     position: absolute;
     top: 22%;
-    left: 200px;
+    left: 6%;
 }
 
 #center{
@@ -38,18 +37,13 @@ h1{
 
 }
 
-#social{
-    width: 70%;
-    text-align: center;
-}
 
 #shop{
     position: absolute;
     left: 30%;
-    width: 135px;
-    height: 45px;
-    border-color: orange;
-    color: orange;
+    /* width: 135px;
+    height: 45px; */
+    color: black;
     font-weight: bold;
     font-size: 18px;
     background-color: black;
@@ -60,12 +54,11 @@ p{
     color: #141414;
 }
 
-h2{
-    color: #141414;
-}
 
 .navbar-inverse{
     border-radius: 0px;
 }
 
-
+/* .background_img {
+  width: 98%;
+} */

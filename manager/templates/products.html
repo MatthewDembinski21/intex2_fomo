@@ -1,0 +1,45 @@
+<%inherit file="app_base.html" />
+
+<%block name="content_center">
+   <div class="content">
+    <h1 class='cen'>Products</h1>
+    <a href="/manager/create/" class="btn btn-primary btn-md active rightside" role="button" aria-pressed="true">Create Product</a>
+     <table class="table">
+         <thead>
+           <tr>
+             <th>Category</th>
+             <th>Product Type</th>
+             <th>Name</th>
+             <th>Price</th>
+             <th>Quantity</th>
+             <th></th>
+             <th></th>
+           </tr>
+         </thead>
+         <tbody>
+           % for p in productList:
+           <tr>
+             <td>${p.category}</td>
+             <td>${p.TITLE}</td>
+             <td>${p.name}</td>
+             <td>${p.price}</td>
+             <td>
+               %if hasattr(p, 'quantity'):
+                 ${p.quantity}
+               %else:
+                 1
+               %endif
+             </td>
+             <td>
+               <a href="/manager/edit/${p.id}" class="btn btn-danger btn-md active" role="button" aria-pressed="true">Edit</a>
+             </td>
+             <td>
+               <a href="/manager/delete/${p.id}" class="btn btn-info btn-md active" role="button" aria-pressed="true">Delete</a>
+             </td>
+           </tr>
+           % endfor
+         </tbody>
+     </table>
+     <br>
+ </div>
+</%block>

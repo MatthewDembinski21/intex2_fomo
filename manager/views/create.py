@@ -14,7 +14,7 @@ def process_request(request):
     form = CreateForm(request)
     if form.is_valid():
         form.commit()
-        return HttpResponseRedirect('/catalog/product/')
+        return HttpResponseRedirect('/manager/products/')
 
     context={
               'form': form,
@@ -134,4 +134,4 @@ class CreateForm(Formless):
             myProduct.save()
 
 
-        HttpResponseRedirect('/catalog/templates/product.html')
+        HttpResponseRedirect('/manager/products/')

@@ -10,14 +10,14 @@ from django_mako_plus import view_function
 
 
 @view_function
-def process_request(request):
-    try:
-        product = cmod.Product.objects.get(id=request.urlparams[0])
-    except cmod.Product.DoesNotExist:
-        return HttpResponseRedirect('/')
+def process_request(request, product:cmod.Product):
+    # try:
+    #     product = cmod.Product.objects.get(id=request.urlparams[0])
+    # except cmod.Product.DoesNotExist:
+    #     return HttpResponseRedirect('/')
 
     if product.TITLE == 'Individual':
-        product = cmod.IndividualProduct.objects.get(id=request.urlparams[0])
+        # product = cmod.IndividualProduct.objects.get(id=request.urlparams[0])
         form = EditForm(initial={'name':product.name,
                                  'description':product.description,
                                  'price':product.price,
@@ -28,7 +28,7 @@ def process_request(request):
                         request=request)
 
     elif product.TITLE == 'Rental':
-        product = cmod.RentalProduct.objects.get(id=request.urlparams[0])
+        # product = cmod.RentalProduct.objects.get(id=request.urlparams[0])
         form = EditForm(initial={'name':product.name,
                                  'description':product.description,
                                  'price':product.price,
@@ -39,7 +39,7 @@ def process_request(request):
                                  'retire_date':product.retire_date},
                         request=request)
     else:
-        product = cmod.BulkProduct.objects.get(id=request.urlparams[0])
+        # product = cmod.BulkProduct.objects.get(id=request.urlparams[0])
         form = EditForm(initial={'name':product.name,
                                  'description':product.description,
                                  'price':product.price,
@@ -53,7 +53,7 @@ def process_request(request):
 
     if form.is_valid():
         form.commit(request)
-        return HttpResponseRedirect('/catalog/product/')
+        return HttpResponseRedirect('products.html')
 
     context={
               'form': form,
@@ -121,7 +121,8 @@ class EditForm(Formless):
         #self.cleaned_data.title
 
         if (self.cleaned_data.get('type') == 'IndividualProduct'):
-            myProduct = cmod.IndividualProduct.objects.get(id=request.urlparams[0])
+            myProduct = product
+
             myProduct.TITLE = self.cleaned_data.get('title')
             myProduct.status = self.cleaned_data.get('status')
             myProduct.name = self.cleaned_data.get('name')
@@ -132,7 +133,7 @@ class EditForm(Formless):
             myProduct.save()
 
         elif (self.cleaned_data.get('type') == 'RentalProduct'):
-            myProduct = cmod.RentalProduct.objects.get(id=request.urlparams[0])
+            myProduct = product
             myProduct.TITLE = self.cleaned_data.get('title')
             myProduct.status = self.cleaned_data.get('status')
             myProduct.name = self.cleaned_data.get('name')
@@ -144,7 +145,7 @@ class EditForm(Formless):
             myProduct.save()
 
         else:
-            myProduct = cmod.BulkProduct.objects.get(id=request.urlparams[0])
+            myProduct = product
             myProduct.TITLE = self.cleaned_data.get('title')
             myProduct.status = self.cleaned_data.get('status')
             myProduct.name = self.cleaned_data.get('name')
@@ -157,4 +158,4 @@ class EditForm(Formless):
             myProduct.save()
 
 
-        HttpResponseRedirect('/catalog/templates/product.html')
+        HttpResponseRedirect('products.html')

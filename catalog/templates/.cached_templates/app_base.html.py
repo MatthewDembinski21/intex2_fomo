@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1522899054.801936
+_modified_time = 1523548743.9264762
 _enable_loop = True
-_template_filename = 'C:/Users/mayaroney/desktop/fomo/catalog/templates/app_base.html'
+_template_filename = 'C:/Users/Linds/desktop/intex2_fomo/catalog/templates/app_base.html'
 _template_uri = 'app_base.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -16,6 +16,8 @@ _exports = ['menu', 'nav_main', 'content_left', 'content_right']
 
 
 from catalog import models as cmod
+
+from catalog import models as cmod 
 
 def _mako_get_namespace(context, name):
     try:
@@ -32,16 +34,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
         def nav_main():
             return render_nav_main(context._locals(__M_locals))
-        def menu():
-            return render_menu(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
+        category = context.get('category', UNDEFINED)
         request = context.get('request', UNDEFINED)
-        name = context.get('name', UNDEFINED)
+        def menu():
+            return render_menu(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n\r\n\r\n')
@@ -110,22 +112,26 @@ def render_nav_main(context,**pageargs):
 def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        name = context.get('name', UNDEFINED)
+        category = context.get('category', UNDEFINED)
         def content_left():
             return render_content_left(context)
         __M_writer = context.writer()
-        __M_writer('\r\n</br>\r\n</br>\r\n\r\n<ul id="category_list" class="nav  nav-pills nav-stacked">\r\n        <li>\r\n            <a href="/catalog/index/" type="button"\r\n               class="btn btn-link nav-item category_nav ')
-        __M_writer(str('on' if name == 'All Products' else 'off'))
-        __M_writer('">All\r\n                Products</a>\r\n        </li>\r\n')
+        __M_writer("\r\n</br>\r\n</br>\r\n<ul id='catlist'>\r\n  <li><a id='allprod' href='/catalog/index'/>All Products</a></li>\r\n  ")
+        __M_writer('\r\n')
         for c in cmod.Category.objects.all():
-            __M_writer('            <li>\r\n\r\n                <a id="but" href="/catalog/index/')
-            __M_writer(str(c.id))
-            __M_writer('" type="button"\r\n                   class="btn btn-link nav-item category_nav ')
-            __M_writer(str('on' if c.name == name else 'off'))
-            __M_writer('">')
-            __M_writer(str(c.name))
-            __M_writer('</a>\r\n            </li>\r\n')
-        __M_writer('    </ul>\r\n\r\n    <!--<ul id="category_list">-->\r\n        <!--<li><a  href="/catalog/index/0/">All Products</a></li>-->\r\n        <!--%for c in categoryList:-->\r\n            <!--<li><a id="name" href="/catalog/index/')
+            if category == c.name:
+                __M_writer("      <li><a class ='active' href='/catalog/index/")
+                __M_writer(str(c.id))
+                __M_writer("'/>")
+                __M_writer(str(c.name))
+                __M_writer('</a></li>\r\n')
+            else:
+                __M_writer("      <li><a href='/catalog/index/")
+                __M_writer(str(c.id))
+                __M_writer("'/>")
+                __M_writer(str(c.name))
+                __M_writer('</a></li>\r\n')
+        __M_writer('\r\n    <!--<ul id="category_list">-->\r\n        <!--<li><a  href="/catalog/index/0/">All Products</a></li>-->\r\n        <!--%for c in categoryList:-->\r\n            <!--<li><a id="name" href="/catalog/index/')
         __M_writer(str(c.id))
         __M_writer('/">')
         __M_writer(str(c.name))
@@ -150,7 +156,7 @@ def render_content_right(context,**pageargs):
             myList = request.last_five[0:5]
                 
         
-        __M_writer("\r\n        <ol id='thumbnailsRight'>\r\n")
+        __M_writer("\r\n        <ol id='thumbnailsRight' class='rv cen'>\r\n")
         for h in myList:
             __M_writer('                <a href="/catalog/details/')
             __M_writer(str(h.id))
@@ -167,6 +173,6 @@ def render_content_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/mayaroney/desktop/fomo/catalog/templates/app_base.html", "uri": "app_base.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "46": 1, "47": 2, "52": 7, "57": 19, "62": 47, "67": 65, "73": 5, "79": 5, "85": 10, "92": 10, "93": 12, "94": 12, "95": 13, "96": 13, "97": 14, "98": 14, "99": 15, "100": 15, "101": 16, "102": 16, "103": 17, "104": 17, "110": 22, "117": 22, "118": 29, "119": 29, "120": 32, "121": 33, "122": 35, "123": 35, "124": 36, "125": 36, "126": 36, "127": 36, "128": 39, "129": 44, "130": 44, "131": 44, "132": 44, "138": 50, "145": 50, "146": 53, "153": 58, "154": 60, "155": 61, "156": 61, "157": 61, "158": 61, "159": 61, "160": 62, "161": 62, "162": 64, "168": 162}}
+{"filename": "C:/Users/Linds/desktop/intex2_fomo/catalog/templates/app_base.html", "uri": "app_base.html", "source_encoding": "utf-8", "line_map": {"18": 2, "20": 27, "33": 0, "48": 1, "49": 2, "54": 7, "59": 19, "64": 42, "69": 60, "75": 5, "81": 5, "87": 10, "94": 10, "95": 12, "96": 12, "97": 13, "98": 13, "99": 14, "100": 14, "101": 15, "102": 15, "103": 16, "104": 16, "105": 17, "106": 17, "112": 22, "119": 22, "120": 27, "121": 28, "122": 29, "123": 30, "124": 30, "125": 30, "126": 30, "127": 30, "128": 31, "129": 32, "130": 32, "131": 32, "132": 32, "133": 32, "134": 35, "135": 39, "136": 39, "137": 39, "138": 39, "144": 45, "151": 45, "152": 48, "159": 53, "160": 55, "161": 56, "162": 56, "163": 56, "164": 56, "165": 56, "166": 57, "167": 57, "168": 59, "174": 168}}
 __M_END_METADATA
 """

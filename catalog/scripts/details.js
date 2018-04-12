@@ -2,7 +2,7 @@ $(function(context) {
     return function()
     {
 
-        $(".image img").hover(function(){
+        $(".smolpic").hover(function(){
             $("#largeimage").attr("src",this.src);
         })
 
@@ -11,7 +11,3 @@ $(function(context) {
 
     }
  }(DMP_CONTEXT.get()))
-
-
-
-
