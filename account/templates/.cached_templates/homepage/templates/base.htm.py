@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1523038797.2653072
+_modified_time = 1523509716.0002549
 _enable_loop = True
-_template_filename = 'C:/Users/mayaroney/desktop/fomo/homepage/templates/base.htm'
+_template_filename = '/Users/Josh/Downloads/intex2_fomo/homepage/templates/base.htm'
 _template_uri = '/homepage/templates/base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -23,27 +23,27 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def nav_main():
+            return render_nav_main(context._locals(__M_locals))
         def top_center():
             return render_top_center(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
-        def bottom():
-            return render_bottom(context._locals(__M_locals))
-        def nav_main():
-            return render_nav_main(context._locals(__M_locals))
-        def skip():
-            return render_skip(context._locals(__M_locals))
-        def header_maintenance():
-            return render_header_maintenance(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        def footer():
-            return render_footer(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def skip():
+            return render_skip(context._locals(__M_locals))
+        def bottom():
+            return render_bottom(context._locals(__M_locals))
+        def footer():
+            return render_footer(context._locals(__M_locals))
+        def header_maintenance():
+            return render_header_maintenance(context._locals(__M_locals))
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<!DOCTYPE html>\r\n\r\n\r\n<html>\r\n<meta charset="UTF-8">\r\n<head>\r\n\r\n    <title>FOMO</title>\r\n\r\n')
         __M_writer('    <!--<script src="')
@@ -79,14 +79,14 @@ def render_body(context,**pageargs):
 
         __M_writer('\r\n        </ul>\r\n               <ul class="nav navbar-nav navbar-right">\r\n')
         if request.user.is_authenticated:
-            __M_writer('                   <li class=" ')
+            __M_writer('                       <li class=" ')
             __M_writer(str( 'active' if request.dmp.page == 'cart' else '' ))
-            __M_writer('">\r\n                       <a href="/catalog/cart">\r\n\r\n')
+            __M_writer('">\r\n                            <a href="/catalog/cart">\r\n\r\n')
             if cmod.Order.objects.filter(user = request.user,status='cart').first() is not None:
-                __M_writer('                                   ')
+                __M_writer('                                       ')
                 __M_writer(str(cmod.Order.objects.filter(user = request.user,status='cart').first().num_items()))
-                __M_writer('\r\n                                   <span class="glyphicon glyphicon-shopping-cart"></span></a>\r\n')
-            __M_writer('\r\n                   </li>\r\n                        <li class="dropdown">\r\n                           <a class="dropdown-toggle" data-toggle="dropdown" href="#">\r\n                               Welcome ')
+                __M_writer('\r\n                                       <span class="glyphicon glyphicon-shopping-cart"></span>\r\n')
+            __M_writer('                            </a>\r\n                       </li>\r\n                        <li class="dropdown">\r\n                           <a class="dropdown-toggle" data-toggle="dropdown" href="#">\r\n                               Welcome ')
             __M_writer(str(request.user.first_name))
             __M_writer(' ')
             __M_writer(str(request.user.last_name))
@@ -249,6 +249,6 @@ def render_footer(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/mayaroney/desktop/fomo/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 2, "20": 123, "22": 0, "48": 2, "49": 14, "50": 14, "51": 14, "52": 16, "53": 16, "54": 17, "55": 17, "56": 18, "57": 18, "58": 23, "59": 24, "60": 24, "61": 27, "62": 27, "63": 27, "68": 37, "73": 38, "74": 46, "75": 46, "80": 56, "81": 59, "82": 60, "83": 60, "84": 60, "85": 63, "86": 64, "87": 64, "88": 64, "89": 67, "90": 71, "91": 71, "92": 71, "93": 71, "94": 78, "95": 79, "96": 83, "101": 95, "106": 100, "111": 105, "116": 110, "121": 115, "126": 125, "132": 37, "143": 38, "154": 49, "161": 49, "162": 50, "163": 50, "164": 51, "165": 51, "166": 52, "167": 52, "168": 53, "169": 53, "170": 54, "171": 54, "172": 55, "173": 55, "179": 93, "185": 93, "191": 100, "202": 105, "213": 110, "224": 115, "235": 122, "241": 122, "242": 123, "243": 124, "244": 124, "250": 244}}
+{"filename": "/Users/Josh/Downloads/intex2_fomo/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 2, "20": 123, "22": 0, "48": 2, "49": 14, "50": 14, "51": 14, "52": 16, "53": 16, "54": 17, "55": 17, "56": 18, "57": 18, "58": 23, "59": 24, "60": 24, "61": 27, "62": 27, "63": 27, "68": 37, "73": 38, "74": 46, "75": 46, "80": 56, "81": 59, "82": 60, "83": 60, "84": 60, "85": 63, "86": 64, "87": 64, "88": 64, "89": 67, "90": 71, "91": 71, "92": 71, "93": 71, "94": 78, "95": 79, "96": 83, "101": 95, "106": 100, "111": 105, "116": 110, "121": 115, "126": 125, "132": 37, "143": 38, "154": 49, "161": 49, "162": 50, "163": 50, "164": 51, "165": 51, "166": 52, "167": 52, "168": 53, "169": 53, "170": 54, "171": 54, "172": 55, "173": 55, "179": 93, "185": 93, "191": 100, "202": 105, "213": 110, "224": 115, "235": 122, "241": 122, "242": 123, "243": 124, "244": 124, "250": 244}}
 __M_END_METADATA
 """
