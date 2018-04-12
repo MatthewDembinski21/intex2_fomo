@@ -48,7 +48,7 @@ def render_body(context,**pageargs):
         __M_writer('\r\n\r\n<!DOCTYPE html>\r\n\r\n\r\n<html>\r\n<meta charset="UTF-8">\r\n<head>\r\n\r\n    <title>FOMO</title>\r\n\r\n')
         __M_writer('    <!--<script src="')
         __M_writer(str( STATIC_URL ))
-        __M_writer('homepage/media/jquery-3.3.1.js"></script>-->\r\n    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>\r\n    <script src="')
+        __M_writer('homepage/media/jquery-3.3.1.js"></script>-->\r\n    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>\r\n    <script src="')
         __M_writer(str( STATIC_URL ))
         __M_writer('homepage/media/bootstrap3/js/bootstrap.min.js"></script>\r\n    <link rel="stylesheet" type="text/css" href="')
         __M_writer(str( STATIC_URL ))
