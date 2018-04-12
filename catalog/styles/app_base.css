@@ -1,0 +1,165 @@
+#top{
+    border-bottom: None;
+    margin: 0px;
+}
+
+#category_list li{
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    margin: 12px 18px;
+    padding: 8px;
+    width: 150px;
+    border: 2px solid orange;
+    border-radius: 4px;
+}
+
+.product_list img{
+    width: 220px;
+}
+
+
+.product_list li{
+   display: inline-block;
+    margin: 12px 18px;
+    padding: 10px;
+    border: 2px solid #CCCCCC;
+    border-radius: 4px;
+    width: 270px;
+    height: 270px;
+    vertical-align: top;
+    position: relative;
+    overflow-y: auto;
+}
+
+#shopTitle{
+    text-align: Center;
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+
+#name {
+    position: relative;
+}
+
+.product_list li .price {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: orange;
+    color: white;
+    padding: 6px;
+    border-radius: 12px;
+}
+
+.title{
+    text-align: center;
+}
+
+#paginator{
+text-align: center;
+}
+
+
+.on {
+    background-color: orange;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+}
+
+.off {
+    font-size: 16px;
+    color: orange;
+    background-color: white;
+}
+
+.containter{
+    margin-left: 230px;
+    margin-right: 260px;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+#image_container
+{
+    float: left;
+}
+#thumbnails
+{
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+.image
+{
+    list-style: none;
+
+}
+
+.rightimage
+{
+    list-style: none;
+
+}
+.rightimage img
+{
+    width: 65px;
+}
+.image img
+{
+    width: 75px;
+}
+#Product_details
+{
+    padding: 20px;
+}
+#largeimage
+{
+    width: 250px;
+    margin: 20px;
+}
+#purchase
+{
+    float: right;
+}
+
+
+#buyNow{
+list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: 12px 18px;
+    padding: 8px;
+    width: 150px;
+    border-radius: 4px;
+    background-color: orange;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+h5{
+    font-size: 20px;
+}
+
+#thumbnailsRight{
+}
+

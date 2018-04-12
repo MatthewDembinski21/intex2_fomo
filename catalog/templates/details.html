@@ -1,0 +1,33 @@
+<%inherit file="app_base.html" />
+
+
+<%block name="top_center">
+            <!--Page Title-->
+</%block>
+
+<%block name="content_center">
+
+
+    <div id='image_container'>
+        <ul id='thumbnails'>
+             %for p in myPics:
+                <li class ='image' alt="Thumbnail Images"><img src='${p}'></li>
+             %endfor
+         </ul>
+         <img id='largeimage' alt="Image of ${product.name}" src='${product.image_url()}'>
+     </div>
+     <div id='product_details'>
+         <h1 class="title">${product.name|h}</h1>
+         </br>
+
+        <div class ='description'>${product.description}</div>
+        <div class ='price'>$${product.price} each</div>
+
+     <!--if product.__class__.__name__ == 'BulkProduct':-->
+           ${ form }
+     <!--endif-->
+
+
+     </div>
+</br></br></br></br></br></br></br></br>
+</%block>
