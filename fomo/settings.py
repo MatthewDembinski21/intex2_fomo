@@ -27,7 +27,7 @@ SECRET_KEY = 'ia!*z)@7a-5)b6d79cl@ds8p*8_h)2@=lj(us^y+l2diig9j@8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.shopfomo.me']
 
 
 # Application definition
@@ -54,6 +54,7 @@ AUTH_USER_MODEL = 'account.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+	'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -162,10 +163,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'test',
         'USER': 'postgres',
-        # 'PASSWORD': 'Kuuipo88',
-        'PASSWORD':'password',
+        'PASSWORD':'POOPonast1ck',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '',
                 }
             }
 
